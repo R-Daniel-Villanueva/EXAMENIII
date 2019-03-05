@@ -1,15 +1,18 @@
 package mx.com.axity.services.service;
 
 import mx.com.axity.commons.to.UserTO;
+import mx.com.axity.model.UserDO;
+
 import java.util.List;
 
 public interface IbecaService {
 
-    List<UserTO> getUsers();
+    List<UserDO> getAllUsers();
+    UserDO getIdUser(int id);
+    UserDO deleteUser(Long id);
+    UserDO insertUser(UserDO userDO);
+    UserDO updateUser(UserDO userDO);
 
-    int sum(int sum1,int sum2);
-    int subtraction (int sum1,int num1);
-    int multiplication(int num);
-    int division(int numtodiv);
+
 }
 
