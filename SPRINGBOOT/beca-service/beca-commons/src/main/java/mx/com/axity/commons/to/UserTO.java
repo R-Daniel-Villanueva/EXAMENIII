@@ -2,18 +2,18 @@ package mx.com.axity.commons.to;
 
 import java.io.Serializable;
 
-public class UserTO implements Serializable {
+public class UserTO implements Serializable {//serializable
 
-    private int id;
+    private Long id;
     private String name;
     private String lastName;
     private int age;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

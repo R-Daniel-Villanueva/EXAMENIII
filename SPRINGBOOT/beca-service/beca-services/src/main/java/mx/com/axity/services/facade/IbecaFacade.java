@@ -8,8 +8,9 @@ import java.util.List;
 public interface IbecaFacade {
 
     List<UserTO> getAllUsers();
-    UserTO getIdUser(int id);
-    UserTO deleteUser(Long id);
-    UserDO insertUser(UserDO userDO);
-    UserDO updateUser(UserDO userDO);
+    UserTO getIdUser(Long id);
+    void deleteUser(Long id);
+    void insertUser(UserDO userDO);
+    void updateUser(UserDO userDO);
+
 }

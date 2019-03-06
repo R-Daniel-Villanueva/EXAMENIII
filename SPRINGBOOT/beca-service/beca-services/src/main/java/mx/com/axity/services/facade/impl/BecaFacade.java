@@ -2,7 +2,6 @@ package mx.com.axity.services.facade.impl;
 
 import mx.com.axity.commons.to.UserTO;
 import mx.com.axity.model.UserDO;
-import mx.com.axity.persistence.UserDAO;
 import mx.com.axity.services.facade.IbecaFacade;
 import mx.com.axity.services.service.IbecaService;
 import org.modelmapper.ModelMapper;
@@ -31,7 +30,7 @@ public class becaFacade implements IbecaFacade {
     }
 
     @Override
-    public UserTO getIdUser(int id) {
+    public UserTO getIdUser(Long id) {
         UserDO userDO=this.becaService.getIdUser(id);
 
         Type userTOType = new TypeToken<UserTO>() {}.getType();
@@ -40,21 +39,17 @@ public class becaFacade implements IbecaFacade {
     }
 
     @Override
-    public UserTO deleteUser(Long id) {
+    public void deleteUser(Long id) {
         this.becaService.deleteUser(id);
-        return null;
     }
 
     @Override
-    public UserDO insertUser(UserDO userDO) {
+    public void insertUser(UserDO userDO) {
         this.becaService.insertUser(userDO);
-        return null;
     }
-
     @Override
-    public UserDO updateUser(UserDO userDO) {
+    public void updateUser(UserDO userDO) {
         this.becaService.updateUser(userDO);
-        return null;
     }
 
 

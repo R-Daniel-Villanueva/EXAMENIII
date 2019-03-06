@@ -20,6 +20,4 @@ public abstract class BaseTest {
     @Autowired
     public TestEntityManager entityManager;
 
-    @Autowired
-    public IbecaFacade becaFacade;
 }

@@ -1,16 +1,14 @@
 package mx.com.axity.services.service.impl;
 
-import mx.com.axity.commons.to.UserTO;
 import mx.com.axity.model.UserDO;
 import mx.com.axity.persistence.UserDAO;
 import mx.com.axity.services.service.IbecaService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.lang.reflect.Type;
+
 import java.util.List;
 
 @Service
@@ -31,28 +29,24 @@ public class becaServiceImpl implements IbecaService {
     }
 
     @Override
-    public UserDO getIdUser(int id) {
+    public UserDO getIdUser(Long id) {
 
-        return this.userDAO.findById((long) id).get();//manejo de excepcion para que no sea el resultado del arreglo nulo
+        return this.userDAO.findById(id).get();//manejo de excepcion para que no sea el resultado del arreglo nulo
     }
 
     @Override
-    public UserDO deleteUser(Long id) {
+    public void deleteUser(Long id) {
         this.userDAO.deleteById(id);
-        return null;
     }
 
     @Override
-    public UserDO insertUser(UserDO userDO) {
+    public void insertUser(UserDO userDO) {
         this.userDAO.save(userDO);
-        return null;
     }
 
     @Override
-    public UserDO updateUser(UserDO userDO) {
-        this.userDAO.save(userDO);
-        return null;
+    public void updateUser(UserDO userDO) {
+            this.userDAO.save(userDO);
     }
-
 
 }

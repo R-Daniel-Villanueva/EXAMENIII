@@ -20,4 +20,13 @@
             </column>
         </createTable>
     </changeSet>
+    <!--
+    <changeSet author="ROQUE_A" id="05032019_2">
+        <addAutoIncrement
+                            columnDataType="int"
+                            columnName="id"
+                            schemaName="public"
+                            tableName="users"/>
+    </changeSet>
+    -->
 </databaseChangeLog> 
