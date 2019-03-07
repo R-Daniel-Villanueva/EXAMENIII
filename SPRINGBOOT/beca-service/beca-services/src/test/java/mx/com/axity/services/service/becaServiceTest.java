@@ -22,7 +22,7 @@ public class becaServiceTest extends BaseTest {
         Assert.assertTrue("NOMBRE 8".equals(userDO.getName()));
     }
 
-
+/*
     @Test
     public void updateNoExisteRegistro() {
         try{
@@ -32,5 +32,5 @@ public class becaServiceTest extends BaseTest {
             Assert.assertTrue(e instanceof NoSuchElementException);
         }
     }
-
+*/
 }
