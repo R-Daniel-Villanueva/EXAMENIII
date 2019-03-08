@@ -16,10 +16,10 @@ public class becaServiceTest extends BaseTest {
 
     @Test
     public void updateExisteRegistro() {
-        UserDO userDO= this.ibecaService.getIdUser((long)8);
+        UserDO userDO= this.ibecaService.getidLogin((long)8);
         Assert.assertTrue(userDO!=null);
         Assert.assertTrue(new Long(8).equals((userDO).getId()));
-        Assert.assertTrue("NOMBRE 8".equals(userDO.getName()));
+        Assert.assertTrue("NOMBRE 8".equals(userDO.getUser()));
     }
 
 /*

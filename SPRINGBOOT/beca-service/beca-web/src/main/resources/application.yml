@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/springboot #la ip propia d ela maquina fisica
+    url: jdbc:postgresql://10.11.1.194:5433/springboot #la ip propia d ela maquina fisica
     username: postgres
     password: project123
     driver-class-name: org.postgresql.Driver

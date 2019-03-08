@@ -23,61 +23,57 @@ public class HelloController {
 
     //@Autowired
     //RestTemplate restTemplate;
-
+////////////////////////////////////////////////////////////////////////////////////////7
     @Autowired
     IbecaFacade IbecaFacade;
     //METODO PARA CONSULTAR TODOS LOS REGISTROS EXISTENTES
-    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<UserTO>> getAllUsers() {
-        LOG.info("Se invoca /users");
-        List<UserTO> users = this.IbecaFacade.getAllUsers();
+    @RequestMapping(value = "/login", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<UserTO>> getAllLogin() {
+        LOG.info("Se invoca /login");
+        List<UserTO> users = this.IbecaFacade.getAllLogin();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
     //METODO PARA COSNULTAR UN REGISTRO EN BASE A SU ID
-    @RequestMapping(value = "/userid", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<UserTO> getIdUser(@RequestParam(value="id")int id) {
-        LOG.info("Se invoca /userid");
+    @RequestMapping(value = "/idlogin", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<UserTO> getIdLogin(@RequestParam(value="id")long id) {
+        LOG.info("Se invoca /idlogin");
         LOG.info(id);
-        UserTO users = this.IbecaFacade.getIdUser((long) id);
-        return new ResponseEntity<>(users, HttpStatus.OK);
+        UserTO users = this.IbecaFacade.getIdLogin((long) id);
+        if(users.getId()!=null){
+            return new ResponseEntity<>(users, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
     //METODO PARA ELIMINAR UN REGISTRO EN BASE A SU ID
-    @RequestMapping(value = "/userdelete", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity<UserTO> deleteUser(@RequestParam(value="id")long id) {
-        LOG.info("Se invoca /userdelete");
+    @RequestMapping(value = "/deletelogin", method = RequestMethod.DELETE, produces = "application/json")
+    public ResponseEntity<UserTO> deleteLogin(@RequestParam(value="id")long id) {
+        LOG.info("Se invoca /deletelogin");
         LOG.info(id);
-        this.IbecaFacade.deleteUser(id);
+        this.IbecaFacade.deleteLogin(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     //METODO PARA GUARDAR UN REGISTRO EN BASE A SU ID
-    @RequestMapping(value = "/usersave", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<UserTO> insertUser(@RequestBody UserDO userDO) {
-        LOG.info("Se invoca /insertuser");
+    @RequestMapping(value = "/savelogin", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<UserTO> insertLogin(@RequestBody UserDO userDO) {
+        LOG.info("Se invoca /savelogin");
         LOG.info(userDO);
-        this.IbecaFacade.insertUser(userDO);
-        return new ResponseEntity<>(HttpStatus.OK);
+        if(userDO.getPass()!=null&&userDO.getUser()!=null){
+            this.IbecaFacade.insertLogin(userDO);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
     //METODO PARA ACTUALIZAR UN REGISTRO EN BASE A SU ID
-    @RequestMapping(value = "/userupdate", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<UserTO> updateUser(@RequestBody UserDO userDO) {
-        LOG.info("Se invoca /userupdate");
+    @RequestMapping(value = "/updatelogin", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<UserTO> updateLogin(@RequestBody UserDO userDO) {
+        LOG.info("Se invoca /updatelogin");
         LOG.info(userDO);
-        if(userDO.getId()!=null){
-            this.IbecaFacade.updateUser(userDO);
+        if(userDO.getId()!=null&&userDO.getUser()!=null&&userDO.getPass()!=null){
+            this.IbecaFacade.updateLogin(userDO);
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
         }
-
-
-
-
-
-        /*{
-        	"name":"NOMBRE",
-	        "lastName":"APELLIDO",
-	        "age":##
-          }
-        * */
     }
 }

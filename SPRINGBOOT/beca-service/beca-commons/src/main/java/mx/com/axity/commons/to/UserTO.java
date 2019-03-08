@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 public class UserTO implements Serializable {//serializable
 
+    public UserTO() {
+
+    }
+
     private Long id;
-    private String name;
-    private String lastName;
-    private int age;
 
     public Long getId() {
         return id;
@@ -17,27 +18,23 @@ public class UserTO implements Serializable {//serializable
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPass() {
+        return pass;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public int getAge() {
-        return age;
-    }
+    private String user;
+    private String pass;
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 }

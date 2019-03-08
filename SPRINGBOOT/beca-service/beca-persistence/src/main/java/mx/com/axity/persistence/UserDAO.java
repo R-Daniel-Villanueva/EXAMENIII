@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface UserDAO extends CrudRepository<UserDO, Long> {
 
-    List<UserDO> findByLastName(String lastName);
+    List<UserDO> findBypass(String id);
 }

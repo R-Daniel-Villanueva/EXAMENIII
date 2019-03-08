@@ -23,6 +23,33 @@ public class becaServiceImpl implements IbecaService {
     ModelMapper modelMapper;
 
     @Override
+    public List<UserDO> getAllLogin() {
+        return (List<UserDO>) this.userDAO.findAll();
+    }
+
+    @Override
+    public UserDO getidLogin(Long id) {
+        return this.userDAO.findById(id).get();
+    }
+
+    @Override
+    public void deleteLogin(Long id) {
+        this.userDAO.deleteById(id);
+    }
+
+    @Override
+    public void insertLogin(UserDO loginDO) {
+        this.userDAO.save(loginDO);
+
+    }
+
+    @Override
+    public void updateLogin(UserDO loginDO) {
+        this.userDAO.save(loginDO);
+
+    }
+/*
+    @Override
     public List<UserDO> getAllUsers() {
         return (List<UserDO>) this.userDAO.findAll();
 
@@ -48,5 +75,5 @@ public class becaServiceImpl implements IbecaService {
     public void updateUser(UserDO userDO) {
             this.userDAO.save(userDO);
     }
-
+*/
 }

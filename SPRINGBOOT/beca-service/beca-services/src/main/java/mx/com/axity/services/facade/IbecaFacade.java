@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface IbecaFacade {
 
-    List<UserTO> getAllUsers();
-    UserTO getIdUser(Long id);
-    void deleteUser(Long id);
-    void insertUser(UserDO userDO);
-    void updateUser(UserDO userDO);
+    List<UserTO> getAllLogin();
+    UserTO getIdLogin(Long id);
+    void deleteLogin(Long id);
+    void insertLogin(UserDO loginDO);
+    void updateLogin(UserDO loginDO);
 
 }

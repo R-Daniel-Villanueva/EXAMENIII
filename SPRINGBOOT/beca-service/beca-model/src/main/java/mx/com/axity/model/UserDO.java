@@ -3,27 +3,24 @@ package mx.com.axity.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users", schema = "public")
+@Table(name = "login", schema = "public")
 public class UserDO {
 
     @Id//PRIMARY KEY
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="usersSeq")//Autoincrement
-    @SequenceGenerator(name="usersSeq", sequenceName="users_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="loginSeq")//Autoincrement
+    @SequenceGenerator(name="loginSeq", sequenceName="login_id_seq", allocationSize=1)
     @Column(name = "id")
     private Long id;
-    @Column(name = "ds_name")
-    private String name;
-    @Column(name = "ds_lastname")
-    private String lastName;
-    @Column(name = "age")
-    private int age;
+    @Column(name = "ds_user")
+    private String user;
+    @Column(name = "ds_pass")
+    private String pass;
     protected UserDO() {
     }
 
-    public UserDO(String name, String lastName, int age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
+    public UserDO(String user, String pass) {
+        this.user = user;
+        this.pass = pass;
     }
 
     public Long getId() {
@@ -34,27 +31,21 @@ public class UserDO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPass() {
+        return pass;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
